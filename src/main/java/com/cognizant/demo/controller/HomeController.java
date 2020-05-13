@@ -5,8 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
 public class HomeController {
+	@GetMapping("/")
+	public String defaultMessage() {
+		return "Hello from Azure from default!!";
+	}
 	@GetMapping("/hello")
 	public String sayHello() {
 		return "Hello from Azure!!";

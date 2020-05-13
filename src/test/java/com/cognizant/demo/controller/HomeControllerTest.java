@@ -22,10 +22,16 @@ public class HomeControllerTest {
 
 	@Test
 	void testSayHello() throws Exception{
-		//fail("Not yet implemented");
 		mvc.perform(MockMvcRequestBuilders.get("/api/hello").accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isOk())
 		.andExpect(content().string(equalTo("Hello from Azure!!")));
+	}
+	
+	@Test
+	void testdefaultMetod() throws Exception{
+		mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk())
+		.andExpect(content().string(equalTo("Hello from Azure from default!!")));
 	}
 
 }
