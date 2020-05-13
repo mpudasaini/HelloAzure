@@ -23,7 +23,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+		[new Tuple('org.junit.vintage', 'junit-vintage-engine')].each {
+        exclude group: "${it.get(0)}", module: "${it.get(1)}"
+    	}
 	}
 }
 
